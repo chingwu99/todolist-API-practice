@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/earlyaccess/notosanstc.css");
+@import url("https://fonts.googleapis.com/css?family=Baloo+Tamma+2:600, 700");
+* {
+  box-sizing: border-box;
+}
+* h2,
+* p {
+  font-family: "Noto Sans TC";
+  font-style: normal;
+  color: #333333;
+}
+
+html {
+  font-size: 16px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/*lognin page*/
+.lognIn {
+  height: 100vh;
+  background: #ffd370;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.lognIn .lognIn-logo-div {
+  display: flex;
+  flex-direction: column;
+  max-width: 50%;
+}
+.lognIn .lognIn-logo-div img {
+  margin: 10px 0px;
+}
+.lognIn .lognIn-imput-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 50%;
+  padding: 106px;
+}
+.lognIn .lognIn-imput-div h2 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 35px;
+  text-align: center;
+}
+.lognIn .lognIn-imput-div div {
+  margin-bottom: 24px;
+}
+.lognIn .lognIn-imput-div div p {
+  padding: 0;
+  margin: 0;
+}
+.lognIn .lognIn-imput-div div input {
+  border: none;
+  padding: 12px 16px;
+  width: 304px;
+  height: 47px;
+  background: #ffffff;
+  border-radius: 10px;
+}
+.lognIn .lognIn-imput-div div p.input-aleart {
+  width: 98px;
+  height: 20px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: #d87355;
+}
+.lognIn .lognIn-imput-div button {
+  padding: 12px 48px;
+  margin-top: 24px;
+  width: 128px;
+  height: 47px;
+  background: #333333;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+}
+.lognIn .lognIn-imput-div .loginPage-signIn-text {
+  cursor: pointer;
+}
+
+/*signIn page*/
+/*list page*//*# sourceMappingURL=index.css.map */
