@@ -19,6 +19,9 @@ body {
   margin: 0;
   padding: 0;
 }
+body .none {
+  display: none;
+}
 
 /*lognin page*/
 .lognIn {
@@ -36,7 +39,7 @@ body {
 .lognIn .lognIn-logo-div img {
   margin: 10px 0px;
 }
-.lognIn .lognIn-imput-div {
+.lognIn .lognIn-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -44,20 +47,20 @@ body {
   max-width: 50%;
   padding: 106px;
 }
-.lognIn .lognIn-imput-div h2 {
+.lognIn .lognIn-form h2 {
   font-weight: 700;
   font-size: 24px;
   line-height: 35px;
   text-align: center;
 }
-.lognIn .lognIn-imput-div div {
+.lognIn .lognIn-form div {
   margin-bottom: 24px;
 }
-.lognIn .lognIn-imput-div div p {
+.lognIn .lognIn-form div p {
   padding: 0;
   margin: 0;
 }
-.lognIn .lognIn-imput-div div input {
+.lognIn .lognIn-form div input {
   border: none;
   padding: 12px 16px;
   width: 304px;
@@ -65,7 +68,7 @@ body {
   background: #ffffff;
   border-radius: 10px;
 }
-.lognIn .lognIn-imput-div div p.input-aleart {
+.lognIn .lognIn-form div p.input-aleart {
   width: 98px;
   height: 20px;
   font-weight: 700;
@@ -73,7 +76,7 @@ body {
   line-height: 20px;
   color: #d87355;
 }
-.lognIn .lognIn-imput-div button {
+.lognIn .lognIn-form .lognIn-button {
   padding: 12px 48px;
   margin-top: 24px;
   width: 128px;
@@ -83,9 +86,292 @@ body {
   color: white;
   cursor: pointer;
 }
-.lognIn .lognIn-imput-div .loginPage-signIn-text {
+.lognIn .lognIn-form .loginPage-signIn-text {
   cursor: pointer;
 }
 
 /*signIn page*/
-/*list page*//*# sourceMappingURL=index.css.map */
+.signIn {
+  height: 100vh;
+  background: #ffd370;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.signIn .signIn-logo-div {
+  display: flex;
+  flex-direction: column;
+  max-width: 50%;
+}
+.signIn .signIn-logo-div img {
+  margin: 10px 0px;
+}
+.signIn .signIn-imput-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 50%;
+  padding: 106px;
+}
+.signIn .signIn-imput-div h2 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 35px;
+  text-align: center;
+}
+.signIn .signIn-imput-div div {
+  margin-bottom: 24px;
+}
+.signIn .signIn-imput-div div p {
+  padding: 0;
+  margin: 0;
+}
+.signIn .signIn-imput-div div input {
+  border: none;
+  padding: 12px 16px;
+  width: 304px;
+  height: 47px;
+  background: #ffffff;
+  border-radius: 10px;
+}
+.signIn .signIn-imput-div .signIn-button {
+  padding: 12px 48px;
+  margin-top: 24px;
+  width: 128px;
+  height: 47px;
+  background: #333333;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+}
+.signIn .signIn-imput-div .signPage-signIn-text {
+  cursor: pointer;
+}
+
+/*list page*/
+.listPage {
+  min-height: 100vh;
+  background: #eee;
+  display: flex;
+  color: #333;
+  background-image: linear-gradient(174deg, #ffd370 2%, #ffd370 46%, #ffffff 46%, #ffffff 100%, #e8e8e8 100%);
+  letter-spacing: 0.07em;
+  padding: 0;
+  margin: 0;
+}
+.listPage h1 {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  font-family: "Baloo Tamma 2";
+  letter-spacing: 0.5rem;
+  font-weight: bold;
+}
+@media (max-width: 575px) {
+  .listPage h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+}
+.listPage .container {
+  margin: 3rem auto 1.5rem auto;
+  padding: 0 12px;
+  width: 500px;
+}
+@media (max-width: 575px) {
+  .listPage .container {
+    margin-top: 1.5rem;
+  }
+}
+.listPage .card {
+  margin-bottom: 0.5rem;
+  max-width: 100%;
+  padding: 1rem;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.15);
+}
+.listPage input[type=text] {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  font-size: 1rem;
+  padding-right: 1rem;
+  color: #333;
+}
+.listPage input[type=text]::-moz-placeholder {
+  color: #9f9a91;
+}
+.listPage input[type=text]:-ms-input-placeholder {
+  color: #9f9a91;
+}
+.listPage input[type=text]::placeholder {
+  color: #9f9a91;
+}
+.listPage .input {
+  padding: 4px 4px 4px 1rem;
+  display: flex;
+}
+.listPage .btn_add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #333;
+  color: #fff;
+  font-size: 2rem;
+  text-decoration: none;
+}
+.listPage .card_list {
+  padding: 0;
+}
+.listPage .tab {
+  display: flex;
+  text-align: center;
+  color: #9f9a91;
+  font-size: 14px;
+}
+.listPage .tab li {
+  padding: 1rem;
+  width: 100%;
+  border-bottom: 2px solid #efefef;
+}
+.listPage .tab li.active {
+  border-bottom: 2px solid #333;
+  color: #333;
+  font-weight: bold;
+}
+.listPage .cart_content {
+  padding: 0.5rem 1rem 1rem 1rem;
+}
+@media (max-width: 575px) {
+  .listPage .cart_content {
+    padding: 0.5rem 1rem 0.5rem 0.5rem;
+  }
+}
+.listPage .list li {
+  position: relative;
+  padding-right: 2rem;
+}
+@media (max-width: 575px) {
+  .listPage .list li {
+    padding-right: 0;
+  }
+}
+.listPage .list li a.delete {
+  position: absolute;
+  opacity: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  text-decoration: none;
+  color: #333;
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  background: #000;
+  background-image: url("https://i.imgur.com/7Q4RjFx.jpg");
+  background-size: contain;
+}
+@media (max-width: 575px) {
+  .listPage .list li a.delete {
+    opacity: 1;
+    width: 12px;
+    height: 12px;
+  }
+}
+.listPage .list li:hover a.delete {
+  opacity: 1;
+}
+.listPage .list_footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem 1rem 0.5rem;
+  font-size: 14px;
+}
+.listPage .list_footer p {
+  color: #9f9a91;
+  text-decoration: none;
+}
+@media (max-width: 575px) {
+  .listPage .list_footer {
+    padding: 1.5rem 0 1rem 0.5rem;
+  }
+}
+.listPage .checkbox {
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  width: 100%;
+  display: block;
+  padding-left: 44px;
+  cursor: pointer;
+}
+.listPage .checkbox span {
+  display: block;
+  padding: 1rem 0;
+  border-bottom: 1px solid #eee;
+  line-height: 1.5;
+}
+@media (max-width: 575px) {
+  .listPage .checkbox span {
+    padding-right: 1rem;
+  }
+}
+.listPage .checkbox input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  cursor: pointer;
+  display: block;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+.listPage .checkbox span::before {
+  content: "";
+  position: absolute;
+  left: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%) scale(1);
+  height: 20px;
+  width: 20px;
+  border-radius: 5px;
+  border: 1px solid #333;
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+.listPage .checkbox span::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 27%;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 0.5rem;
+  border-radius: 1px;
+  border-bottom: 3px solid #ffd370;
+  border-right: 3px solid #ffd370;
+  pointer-events: none;
+  opacity: 0;
+  transition: 0.3s ease;
+}
+.listPage .checkbox input:checked ~ span {
+  color: #9f9a91;
+  text-decoration: line-through;
+}
+.listPage .checkbox input:checked ~ span::before {
+  border-color: transparent;
+  transform: translateY(-50%) scale(0);
+}
+.listPage .checkbox input:checked ~ span::after {
+  opacity: 1;
+}/*# sourceMappingURL=index.css.map */
