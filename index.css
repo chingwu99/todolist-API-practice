@@ -40,7 +40,7 @@ body .none {
 .lognIn .lognIn-logo-div img {
   margin: 10px 0px;
 }
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 900px) {
   .lognIn .lognIn-logo-div img {
     display: none;
   }
@@ -50,7 +50,6 @@ body .none {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 50%;
   padding: 106px;
 }
 .lognIn .lognIn-form h2 {
@@ -107,12 +106,11 @@ body .none {
 .signIn .signIn-logo-div {
   display: flex;
   flex-direction: column;
-  max-width: 50%;
 }
 .signIn .signIn-logo-div img {
   margin: 10px 0px;
 }
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 900px) {
   .signIn .signIn-logo-div img {
     display: none;
   }
