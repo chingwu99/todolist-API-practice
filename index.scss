@@ -35,16 +35,23 @@ body {
   height: 100vh;
   background: #ffd370;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 
   .lognIn-logo-div {
     display: flex;
     flex-direction: column;
-    max-width: 50%;
+    max-width: 500px;
 
     img {
       margin: 10px 0px;
+
+      & {
+        @media screen and(max-width:780px) {
+          display: none;
+        }
+      }
     }
   }
 
@@ -122,6 +129,12 @@ body {
 
     img {
       margin: 10px 0px;
+
+      & {
+        @media screen and(max-width:780px) {
+          display: none;
+        }
+      }
     }
   }
 
@@ -175,7 +188,31 @@ body {
 }
 
 /*list page*/
+.listPage-nav {
+  display: flex;
+  max-width: 100vw;
+  background-color: $default;
 
+  .listPage-nav-img-div {
+    flex: 4;
+  }
+
+  .listPage-nav-text-div {
+    display: flex;
+    flex: 1;
+
+    p {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lognOut {
+      cursor: pointer;
+    }
+  }
+}
 .listPage {
   min-height: 100vh;
   background: #eee;

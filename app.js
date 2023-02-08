@@ -1,9 +1,9 @@
 // 註冊登入換頁
 const listPage = document.querySelector(".listPage");
-const signInText = document.querySelector(".loginPage-signIn-text");
 const lognInPage = document.querySelector(".lognIn");
 const signInPage = document.querySelector(".signIn");
 
+const signInText = document.querySelector(".loginPage-signIn-text");
 signInText.addEventListener("click", () => {
   lognInPage.classList.add("none");
   signInPage.classList.remove("none");
@@ -111,6 +111,7 @@ function signIn(email, nickName, password) {
 const lognInEmail = document.querySelector(".lognInEmail");
 const lognInPassword = document.querySelector(".lognInPassword");
 const lognInButton = document.querySelector(".lognIn-button");
+const inputAleart = document.querySelectorAll(".input-aleart");
 
 lognInButton.addEventListener("click", () => {
   let email = lognInEmail.value.trim();
@@ -120,12 +121,16 @@ lognInButton.addEventListener("click", () => {
     Swal.fire({
       icon: "warning",
       title: "請輸入信箱！",
+    }).then((result) => {
+      inputAleart.forEach((i) => i.classList.remove("none"));
     });
     return;
   } else if (password === "") {
     Swal.fire({
       icon: "warning",
       title: "請輸入密碼！",
+    }).then((result) => {
+      inputAleart.forEach((i) => i.classList.remove("none"));
     });
     return;
   } else if (password.length < 6) {
@@ -139,6 +144,10 @@ lognInButton.addEventListener("click", () => {
   lognIn(email, password);
 });
 
+const listPageNav = document.querySelector(".listPage-nav");
+const username = document.querySelector(".listPage-nav-username");
+let lognInName = "";
+
 function lognIn(email, password) {
   axios
     .post(`${apiUrl}/users/sign_in`, {
@@ -148,14 +157,25 @@ function lognIn(email, password) {
       },
     })
     .then((res) => {
-      console.log(res);
-      axios.defaults.headers.common["Authorization"] =
-        res.headers.authorization;
+      Swal.fire({
+        icon: "success",
+        title: res.data.message,
+      }).then((result) => {
+        lognInEmail.value = "";
+        lognInPassword.value = "";
+        console.log(res);
+        axios.defaults.headers.common["Authorization"] =
+          res.headers.authorization;
 
-      lognInPage.classList.add("none");
-      listPage.classList.remove("none");
+        lognInName = res.data.nickname;
+        username.innerText = lognInName;
 
-      getTodo();
+        lognInPage.classList.add("none");
+        listPage.classList.remove("none");
+        listPageNav.classList.remove("none");
+
+        getTodo();
+      });
     })
     .catch((err) => {
       console.log(err.response);
@@ -168,7 +188,7 @@ function lognIn(email, password) {
 }
 
 //取得後端todo資料
-let resData;
+let resData = [];
 function getTodo() {
   axios
     .get(`${apiUrl}/todos`)
@@ -176,6 +196,7 @@ function getTodo() {
       console.log(res);
       resData = res.data.todos;
       console.log(resData);
+
       updateData();
     })
     .catch((err) => {
@@ -185,16 +206,10 @@ function getTodo() {
 
 //渲染
 const list = document.querySelector(".list");
+
 function renderData(arr) {
   let str = "";
-
   arr.forEach((i) => {
-    if (i.completed_at === null) {
-      i.state = "";
-    } else {
-      i.state = "checked";
-    }
-
     str += `<li data-id=${i.id}>
         <label class="checkbox" >
           <input type="checkbox"  data-state=${i.state} ${i.state}/>
@@ -212,7 +227,7 @@ const inputTodo = document.querySelector(".inputTodo");
 const add = document.querySelector(".btn_add");
 
 add.addEventListener("click", () => {
-  const text = inputTodo.value.trim();
+  let text = inputTodo.value.trim();
   if (text === "") {
     Swal.fire({
       icon: "warning",
@@ -222,6 +237,8 @@ add.addEventListener("click", () => {
   }
 
   addTodo(text);
+
+  inputTodo.value = "";
 });
 
 function addTodo(todo) {
@@ -240,16 +257,13 @@ function addTodo(todo) {
     });
 }
 //刪除代辦、切換代辦狀態
-//這裡有問題！！！
 list.addEventListener("click", (e) => {
   const id = e.target.closest("li").dataset.id;
-  //   console.log(e.target.dataset.state);
+  //   console.log(e.target.dataset.state)
   if (e.target.getAttribute("class") === "delete") {
     deleteTodo(id);
-    //執行後updateData()中tabState的值會吃不到，導致頁面渲染錯誤，想問老師解決辦法
   } else {
     toggleTodo(id);
-    //執行後updateData()中tabState的值會吃不到，導致頁面渲染錯誤，想問老師解決辦法
   }
 });
 
@@ -293,10 +307,16 @@ tab.addEventListener("click", (e) => {
   updateData();
 });
 
-console.log(tabState);
-
 function updateData() {
   let updateList = [];
+
+  resData.forEach((i) => {
+    if (i.completed_at === null) {
+      i.state = "";
+    } else {
+      i.state = "checked";
+    }
+  });
 
   if (tabState == "all") {
     updateList = resData;
@@ -322,3 +342,29 @@ clearDone.addEventListener("click", () => {
     }
   });
 });
+
+//登出
+const lognOutText = document.querySelector(".lognOut");
+lognOutText.addEventListener("click", () => {
+  lognOut();
+});
+
+function lognOut() {
+  axios
+    .delete(`${apiUrl}/users/sign_out`)
+    .then((res) => {
+      console.log(res);
+
+      Swal.fire({
+        icon: "success",
+        title: res.data.message,
+      }).then((result) => {
+        listPage.classList.add("none");
+        listPageNav.classList.add("none");
+        lognInPage.classList.remove("none");
+      });
+    })
+    .catch((err) => {
+      console.log(err.response);
+    });
+}

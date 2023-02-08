@@ -31,7 +31,7 @@
             class="lognInEmail"
             required
           />
-          <p class="input-aleart">此欄位不可為空</p>
+          <p class="input-aleart none">此欄位不可為空</p>
         </div>
         <div>
           <label for="password">密碼</label><br />
@@ -42,6 +42,7 @@
             class="lognInPassword"
             required
           />
+          <p class="input-aleart none">此欄位不可為空</p>
         </div>
         <div>
           <input type="text" value="登入" class="lognIn-button" />
@@ -52,7 +53,7 @@
 
     <!--註冊-->
 
-    <div class="signIn">
+    <div class="signIn none">
       <div class="signIn-logo-div">
         <img src="./img/logo_lg.svg" alt="" /><img src="./img/img.png" alt="" />
       </div>
@@ -108,8 +109,16 @@
     </div>
 
     <!--內頁-->
-
-    <div class="listPage">
+    <nav class="listPage-nav none">
+      <div class="listPage-nav-img-div">
+        <img src="./img/logo_lg.svg" alt="" />
+      </div>
+      <div class="listPage-nav-text-div">
+        <p><span class="listPage-nav-username"></span>的代辦</p>
+        <p class="lognOut">登出</p>
+      </div>
+    </nav>
+    <div class="listPage none">
       <div class="container">
         <h1>TODO LIST</h1>
         <div class="card input">
