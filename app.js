@@ -215,7 +215,7 @@ function renderData(arr) {
           <input type="checkbox"  data-state=${i.state} ${i.state}/>
           <span>${i.content}</span>
         </label>
-        <a href="#" class="delete"></a>
+        <a href="#" class="delete">X</a>
       </li>`;
   });
 

@@ -15,7 +15,7 @@ html {
   font-size: 16px;
   -webkit-tap-highlight-color: transparent;
 }
-$default: #ffd370;
+$default: #b9e1a6;
 $dark: #333;
 $gray: #9f9a91;
 $light: #efefef;
@@ -33,7 +33,7 @@ body {
 
 .lognIn {
   height: 100vh;
-  background: #ffd370;
+  background: $default;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -47,10 +47,8 @@ body {
     img {
       margin: 10px 0px;
 
-      & {
-        @media screen and(max-width:900px) {
-          display: none;
-        }
+      @media screen and (max-width: 900px) {
+        display: none;
       }
     }
   }
@@ -91,7 +89,7 @@ body {
         font-weight: 700;
         font-size: 14px;
         line-height: 20px;
-        color: #d87355;
+        color: #982a09;
       }
     }
 
@@ -116,7 +114,7 @@ body {
 
 .signIn {
   height: 100vh;
-  background: #ffd370;
+  background: $default;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -128,10 +126,8 @@ body {
     img {
       margin: 10px 0px;
 
-      & {
-        @media screen and(max-width:900px) {
-          display: none;
-        }
+      @media screen and (max-width: 900px) {
+        display: none;
       }
     }
   }
@@ -331,8 +327,6 @@ body {
         display: block;
         width: 1rem;
         height: 1rem;
-        background: #000;
-        background-image: url("https://i.imgur.com/7Q4RjFx.jpg");
         background-size: contain;
         @media (max-width: 575px) {
           opacity: 1;
