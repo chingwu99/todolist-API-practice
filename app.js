@@ -31,7 +31,7 @@ signInButton.addEventListener("click", () => {
   let password = signInPassword.value.trim();
   let checkPassword = checkSignInPassword.value.trim();
 
-  console.log(password);
+  // console.log(password);
   if (email === "") {
     Swal.fire({
       icon: "warning",
@@ -83,7 +83,7 @@ function signIn(email, nickName, password) {
       },
     })
     .then((res) => {
-      console.log(res);
+      // console.log(res);
 
       Swal.fire({
         icon: "success",
@@ -163,7 +163,7 @@ function lognIn(email, password) {
       }).then((result) => {
         lognInEmail.value = "";
         lognInPassword.value = "";
-        console.log(res);
+        // console.log(res);
         axios.defaults.headers.common["Authorization"] =
           res.headers.authorization;
 
@@ -178,7 +178,7 @@ function lognIn(email, password) {
       });
     })
     .catch((err) => {
-      console.log(err.response);
+      // console.log(err.response);
       Swal.fire({
         icon: "error",
         title: err.response.data.message,
@@ -193,14 +193,14 @@ function getTodo() {
   axios
     .get(`${apiUrl}/todos`)
     .then((res) => {
-      console.log(res);
+      // console.log(res);
       resData = res.data.todos;
-      console.log(resData);
+      // console.log(resData);
 
       updateData();
     })
     .catch((err) => {
-      console.log(err.response);
+      // console.log(err.response);
     });
 }
 
@@ -249,17 +249,17 @@ function addTodo(todo) {
       },
     })
     .then((res) => {
-      console.log(res);
+      // console.log(res);
       getTodo();
     })
     .catch((err) => {
-      console.log(err.response);
+      // console.log(err.response);
     });
 }
 //刪除代辦、切換代辦狀態
 list.addEventListener("click", (e) => {
   const id = e.target.closest("li").dataset.id;
-  //   console.log(e.target.dataset.state)
+  // console.log(e.target.dataset.state)
   if (e.target.getAttribute("class") === "delete") {
     deleteTodo(id);
   } else {
@@ -271,11 +271,11 @@ function deleteTodo(id) {
   axios
     .delete(`${apiUrl}/todos/${id}`)
     .then((res) => {
-      console.log(res);
+      // console.log(res);
       getTodo();
     })
     .catch((err) => {
-      console.log(err.response);
+      // console.log(err.response);
     });
 }
 
@@ -283,18 +283,18 @@ function toggleTodo(id) {
   axios
     .patch(`${apiUrl}/todos/${id}/toggle`, {})
     .then((res) => {
-      console.log(res);
+      // console.log(res);
       getTodo();
     })
     .catch((err) => {
-      console.log(err.response);
+      // console.log(err.response);
     });
 }
 
 //tab狀態、tab篩選
 const tab = document.querySelector(".tab");
 let tabState = "all";
-console.log(tabState);
+// console.log(tabState);
 tab.addEventListener("click", (e) => {
   const tabs = document.querySelectorAll(".tab li");
   tabState = e.target.dataset.state;
@@ -334,7 +334,7 @@ function updateData() {
 
 //刪除完成代辦
 const clearDone = document.querySelector("#clearDone");
-console.log(clearDone);
+// console.log(clearDone);
 clearDone.addEventListener("click", () => {
   resData.forEach((i) => {
     if (i.state == "checked") {
@@ -353,7 +353,7 @@ function lognOut() {
   axios
     .delete(`${apiUrl}/users/sign_out`)
     .then((res) => {
-      console.log(res);
+      // console.log(res);
 
       Swal.fire({
         icon: "success",
@@ -365,6 +365,6 @@ function lognOut() {
       });
     })
     .catch((err) => {
-      console.log(err.response);
+      // console.log(err.response);
     });
 }
